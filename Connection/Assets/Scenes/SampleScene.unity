@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 1743684826}
   m_Layer: 0
   m_Name: Point_EndPoint
-  m_TagString: Untagged
+  m_TagString: EndPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,6 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ca895eb8ae1e741afb58264c29add1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BurstEffectObject: {fileID: 1861510753705514, guid: 777463d6e3224bb42af116cd209f5663,
+    type: 2}
 --- !u!60 &1743684827
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -562,6 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ca895eb8ae1e741afb58264c29add1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BurstEffectObject: {fileID: 1861510753705514, guid: 777463d6e3224bb42af116cd209f5663,
+    type: 2}
 --- !u!58 &1857990881
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -593,7 +597,7 @@ GameObject:
   - component: {fileID: 1912391159}
   m_Layer: 0
   m_Name: Point_startPoint
-  m_TagString: Untagged
+  m_TagString: StartPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -679,6 +683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ca895eb8ae1e741afb58264c29add1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BurstEffectObject: {fileID: 1861510753705514, guid: 777463d6e3224bb42af116cd209f5663,
+    type: 2}
 --- !u!60 &1912391157
 PolygonCollider2D:
   m_ObjectHideFlags: 0

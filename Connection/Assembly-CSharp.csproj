@@ -61,26 +61,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BurstEffectController.cs" />
     <Compile Include="Assets\Scripts\ConnectLine.cs" />
     <Compile Include="Assets\Scripts\ConnectPointController.cs" />
     <Compile Include="Assets\Scripts\CylinderLine.cs" />
     <Compile Include="Assets\Scripts\InputPointer.cs" />
     <Compile Include="Assets\Scripts\ObjectSpinner.cs" />
     <Compile Include="Assets\Scripts\PlayerInputPointer.cs" />
-    <Compile Include="Assets\Scripts\PlayerPointController.cs" />
     <Compile Include="Assets\Scripts\PointConnector.cs" />
+    <Compile Include="Assets\Scripts\StartConnectPointController.cs" />
     <Compile Include="Assets\StagePointConnection.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Connection/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Untiy_Connection/Connection/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Connection/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Untiy_Connection/Connection/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Connection/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Untiy_Connection/Connection/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Connection/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/yyuki/OneDrive/ドキュメント/GitHub/Untiy_Connection/Connection/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

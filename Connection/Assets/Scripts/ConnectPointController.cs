@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ConnectPointController : MonoBehaviour {
 
+    public GameObject BurstEffectObject;
+
     [System.NonSerialized]
     public bool IsConnected = false;
 
@@ -14,5 +16,16 @@ public class ConnectPointController : MonoBehaviour {
         this.IsConnected = true;
 
         this.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+
+
+    /// <summary>
+    /// コネクトが確立された後に呼ばれる
+    /// </summary>
+    virtual public void Burst()
+    {
+        Instantiate(this.BurstEffectObject, this.transform.position, this.transform.rotation);
+        Destroy(this.gameObject);
     }
 }
