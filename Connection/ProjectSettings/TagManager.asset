@@ -15,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - ConnectPoints
+  - PlayersPointer
+  - Block
+  - PlayersCollider
   - 
   - 
   - 

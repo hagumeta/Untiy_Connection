@@ -7,7 +7,7 @@ public class InputPointer : MonoBehaviour {
 
     protected new Rigidbody2D rigidbody;
 
-    protected void Start()
+    protected virtual void Start()
     {
         this.rigidbody = this.GetComponent<Rigidbody2D>();
     }

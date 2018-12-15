@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class ConnectPointController : MonoBehaviour {
 
     public GameObject BurstEffectObject;
 
     [System.NonSerialized]
-    public bool IsConnected = false;
+    public bool IsConnected;
+
+    private Animator animator;
+
+    private void Start()
+    {
+        this.IsConnected = false;
+        this.animator = this.GetComponent<Animator>();
+    }
+
 
     virtual public void Connected()
     {
         if (this.IsConnected) return;
         this.IsConnected = true;
-
-        this.GetComponent<SpriteRenderer>().color = Color.red;
     }
-
-
 
     /// <summary>
     /// コネクトが確立された後に呼ばれる
@@ -27,5 +33,11 @@ public class ConnectPointController : MonoBehaviour {
     {
         Instantiate(this.BurstEffectObject, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject);
+    }
+
+
+    private void Update()
+    {
+        this.animator.SetBool("IsConnected", this.IsConnected);   
     }
 }

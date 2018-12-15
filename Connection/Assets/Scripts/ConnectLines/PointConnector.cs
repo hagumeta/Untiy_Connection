@@ -11,6 +11,16 @@ public class PointConnector : InputPointer {
     private Transform beforeConnectionPoint;
     private bool isActivate = false;
 
+
+    private CylinderLine myLine;
+
+    override protected void Start()
+    {
+        base.Start();
+    }
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!this.isActivate)
@@ -41,7 +51,12 @@ public class PointConnector : InputPointer {
 
 
                     this.ConnectionLineTransform.Add(lineObj.transform);
+
+
                 }
+
+                this.myLine.point1 = connect.transform;
+                this.myLine.point2 = this.transform;
 
                 this.beforeConnectionPoint = connect.transform;
             }
@@ -58,7 +73,6 @@ public class PointConnector : InputPointer {
     protected override void HideSelfPointer()
     {
         if (this.isActivate) {
-            this.transform.position = new Vector3(1000, 10000, 10000);
 
             this.ResetConnection();
             Destroy(this.gameObject);
@@ -72,6 +86,7 @@ public class PointConnector : InputPointer {
 
     protected virtual void EndConnection()
     {
+        Destroy(this.myLine.gameObject);
         StartCoroutine(this.DeleteConnectPoints());
         this.isActivate = false;
     }
@@ -79,8 +94,11 @@ public class PointConnector : InputPointer {
     protected virtual void StartConnection()
     {
         this.isActivate = true;
+        this.myLine = Instantiate(this.LineObject).GetComponent<CylinderLine>();
+        this.myLine.point1 = this.transform;
+        this.myLine.point2 = this.transform;
     }
-    
+
     private IEnumerator DeleteConnectPoints()
     {
         yield return new WaitForSeconds(0.5f);
@@ -100,10 +118,14 @@ public class PointConnector : InputPointer {
             }
             Destroy(lineObj.gameObject);
         }
+
+
     }
 
     private void ResetConnection()
     {
+        Destroy(this.myLine.gameObject);
+
         foreach (var lineObj in ConnectionLineTransform)
         {
             var line = lineObj.GetComponent<CylinderLine>();

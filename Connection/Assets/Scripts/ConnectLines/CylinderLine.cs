@@ -12,7 +12,7 @@ public class CylinderLine : MonoBehaviour {
         this.line = this.transform;
     }
 
-    public void SetLine(Vector3 pos1, Vector3 pos2)
+    public void SetLine(Vector2 pos1, Vector2 pos2)
     {
         this.point1.position = pos1;
         this.point2.position = pos2;
