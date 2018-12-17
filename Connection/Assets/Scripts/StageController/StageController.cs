@@ -17,13 +17,15 @@ public class StageController : MonoBehaviour {
 
     private void Start()
     {
-        if (instance.gameObject != null)
+        if (instance != null)
         {
             Destroy(this.gameObject);
         } else {
             instance = this;
         }
 
+        NowStageIndex = 0;
+        instance.CreateNowIndexStage();
     }
 
 
@@ -39,6 +41,4 @@ public class StageController : MonoBehaviour {
         var obj = Instantiate(this.StageList[NowStageIndex], this.transform);
         return obj;
     }
-
-
 }

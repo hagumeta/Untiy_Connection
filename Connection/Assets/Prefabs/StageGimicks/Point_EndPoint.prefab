@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1688500585772136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: 4.11, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,6 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BurstEffectObject: {fileID: 1861510753705514, guid: 777463d6e3224bb42af116cd209f5663,
     type: 2}
+  ScoreTextEffect: {fileID: 1438360671305864, guid: dc877e01bf1e5e84aad9dd6f06423f9b,
+    type: 2}
+  Score: 100
 --- !u!212 &212971785516446418
 SpriteRenderer:
   m_ObjectHideFlags: 1

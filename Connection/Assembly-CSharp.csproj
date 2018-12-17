@@ -61,13 +61,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BurstEffectController.cs" />
-    <Compile Include="Assets\Scripts\ConnectLines\ConnectPointController.cs" />
+    <Compile Include="Assets\Scripts\ConnectLines\ConnectPoints\ConnectPointController.cs" />
+    <Compile Include="Assets\Scripts\ConnectLines\ConnectPoints\DoubleConnectPointController.cs" />
     <Compile Include="Assets\Scripts\ConnectLines\CylinderLine.cs" />
     <Compile Include="Assets\Scripts\ConnectLines\PlayerInputPointer.cs" />
     <Compile Include="Assets\Scripts\ConnectLines\PointConnector.cs" />
     <Compile Include="Assets\Scripts\InputPointer.cs" />
     <Compile Include="Assets\Scripts\ObjectSpinner.cs" />
+    <Compile Include="Assets\Scripts\ScoreTextEffect.cs" />
+    <Compile Include="Assets\Scripts\StageController\ScoreGUIController.cs" />
     <Compile Include="Assets\Scripts\StageController\StageController.cs" />
+    <Compile Include="Assets\Scripts\StageController\StageObjectCreator.cs" />
+    <Compile Include="Assets\Scripts\StageController\StageScoreController.cs" />
     <Compile Include="Assets\Scripts\StageController\StageUnitController.cs" />
     <Compile Include="Assets\StagePointConnection.cs" />
     <Reference Include="UnityEditor.StandardEvents">

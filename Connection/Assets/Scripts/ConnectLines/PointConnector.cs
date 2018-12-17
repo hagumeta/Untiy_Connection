@@ -38,7 +38,7 @@ public class PointConnector : InputPointer {
         var connect = collision.GetComponent<ConnectPointController>();
         if (connect != null)
         {
-            if (!connect.IsConnected)
+            if (!connect.IsConnected && this.beforeConnectionPoint != connect.transform)
             {
                 connect.Connected();
                 this.ConnectionTransform.Add(connect.transform);
@@ -52,12 +52,11 @@ public class PointConnector : InputPointer {
 
                     this.ConnectionLineTransform.Add(lineObj.transform);
 
-
                 }
-
+                
                 this.myLine.point1 = connect.transform;
                 this.myLine.point2 = this.transform;
-
+                
                 this.beforeConnectionPoint = connect.transform;
             }
         }
@@ -70,19 +69,22 @@ public class PointConnector : InputPointer {
     }
 
 
+
     protected override void HideSelfPointer()
     {
         if (this.isActivate) {
-
+            this.isActivate = false;
             this.ResetConnection();
-            Destroy(this.gameObject);
         }
     }
+
 
     protected override void MoveTouchPosition()
     {
         base.MoveTouchPosition();
     }
+
+
 
     protected virtual void EndConnection()
     {
@@ -103,30 +105,36 @@ public class PointConnector : InputPointer {
     {
         yield return new WaitForSeconds(0.5f);
 
-        foreach (var lineObj in ConnectionLineTransform)
+        float time = 1f/this.ConnectionTransform.Count;
+
+        var lines = this.ConnectionLineTransform.ToArray();
+        var points = this.ConnectionTransform.ToArray();
+        
+        for (int i = 0; i<points.Length; i++)
         {
-            yield return new WaitForSeconds(0.5f);
-
-            var line = lineObj.GetComponent<CylinderLine>();
-            if (line.point1 != null) {
-                line.point1.GetComponent<ConnectPointController>().Burst();
-                yield return new WaitForSeconds(0.5f);
+            points[i].GetComponent<ConnectPointController>().Burst();
+            if (i < lines.Length) {
+                Destroy(lines[i].gameObject);
             }
-
-            if (line.point2 != null) {
-                line.point2.GetComponent<ConnectPointController>().Burst();
-            }
-            Destroy(lineObj.gameObject);
+            yield return new WaitForSeconds(time);
+            
         }
+        this.ConnectionLineTransform = new List<Transform>();
+        this.ConnectionTransform = new List<Transform>();
 
-
+        yield return new WaitForSeconds(0.5f);
+        StageUnitController.StageComplete();
     }
+
+
 
     private void ResetConnection()
     {
         Destroy(this.myLine.gameObject);
 
-        foreach (var lineObj in ConnectionLineTransform)
+        if (this.ConnectionLineTransform.Count == 0) { return; }
+
+        foreach (var lineObj in this.ConnectionLineTransform)
         {
             var line = lineObj.GetComponent<CylinderLine>();
             if (line.point1 != null)
@@ -139,5 +147,9 @@ public class PointConnector : InputPointer {
             }
             Destroy(lineObj.gameObject);
         }
+
+        this.ConnectionLineTransform = new List<Transform>();
+        this.ConnectionTransform = new List<Transform>();
+
     }
 }

@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StageUnitController : MonoBehaviour {
-    
-    public void StageComplete()
+
+    private static StageUnitController instance;
+
+    private void Start()
+    {
+        if (instance != null) {
+            Destroy(instance.gameObject);
+        }
+        instance = this;
+    }
+
+
+    public static void StageComplete()
     {
         StageController.CreateNextStage();
-        Destroy(this);
+        Destroy(instance.gameObject);
     }
 }
