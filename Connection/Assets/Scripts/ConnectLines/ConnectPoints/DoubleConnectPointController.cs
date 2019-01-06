@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoubleConnectPointController : ConnectPointController {
 
     private int ConnectedCount;
+
     public int ScoreOfSecondConnected;
 
     override protected void Start()

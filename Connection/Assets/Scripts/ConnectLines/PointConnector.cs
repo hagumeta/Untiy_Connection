@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using LineSegmentsIntersection;
+
 
 public class PointConnector : InputPointer {
     public GameObject LineObject;
+    public GameObject GuideLineObject;
+
     List<Transform> ConnectionTransform = new List<Transform>();
     List<Transform> ConnectionLineTransform = new List<Transform>();
 
@@ -45,7 +49,7 @@ public class PointConnector : InputPointer {
                 if (ConnectionTransform.Count >= 2)
                 {
                     var lineObj = Instantiate(this.LineObject);
-                    var line = lineObj.GetComponent<CylinderLine>();
+                    var line = lineObj.GetComponent<ConnectLine>();
                     line.point1 = this.beforeConnectionPoint;
                     line.point2 = connect.transform;
 
@@ -96,7 +100,7 @@ public class PointConnector : InputPointer {
     protected virtual void StartConnection()
     {
         this.isActivate = true;
-        this.myLine = Instantiate(this.LineObject).GetComponent<CylinderLine>();
+        this.myLine = Instantiate(this.GuideLineObject).GetComponent<CylinderLine>();
         this.myLine.point1 = this.transform;
         this.myLine.point2 = this.transform;
     }
@@ -136,7 +140,7 @@ public class PointConnector : InputPointer {
 
         foreach (var lineObj in this.ConnectionLineTransform)
         {
-            var line = lineObj.GetComponent<CylinderLine>();
+            var line = lineObj.GetComponent<ConnectLine>();
             if (line.point1 != null)
             {
                 line.point1.GetComponent<ConnectPointController>().IsConnected = false;

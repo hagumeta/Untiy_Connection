@@ -19,5 +19,9 @@ public class StageUnitController : MonoBehaviour {
     {
         StageController.CreateNextStage();
         Destroy(instance.gameObject);
+
+        foreach (var obj in GameObject.FindGameObjectsWithTag("CrossedEffect")) {
+            Destroy(obj);
+        }
     }
 }

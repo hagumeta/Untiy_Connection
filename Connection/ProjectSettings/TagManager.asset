@@ -6,6 +6,8 @@ TagManager:
   tags:
   - StartPoint
   - EndPoint
+  - ConnectLine
+  - CrossedEffect
   layers:
   - Default
   - TransparentFX
